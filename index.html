@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>大连艺术学院虚实校园·3D</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- 全景图 -->
+      <a-sky src="panorama.jpg"></a-sky>
+      
+      <!-- 摄像机 -->
+      <a-camera>
+        <!-- 添加一个光标（点击交互用） -->
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <!-- 可点击的热点 -->
+      <a-entity
+        position="0 0 -5"
+        geometry="primitive: sphere; radius: 0.1"
+        material="color: red"
+        cursor-listener
+        onclick="alert('大连艺术学院虚实校园·3D')"
+      ></a-entity>
+    </a-scene>
+  </body>
+</html>
