@@ -31,6 +31,15 @@
   <head>
     <title>VR全景交互文字框</title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    .info-box {
+  /* ...其他样式... */
+  opacity: 0;  /* 初始透明 */
+  transition: opacity 0.3s ease; /* 过渡动画 */
+}
+.info-box.show {
+  opacity: 1;
+  display: block;
+}
     <style>
       /* 文字框样式 */
       .info-box {
