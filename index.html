@@ -26,3 +26,70 @@
     </a-scene>
   </body>
 </html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VR全景交互文字框</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <style>
+      /* 文字框样式 */
+      .info-box {
+        position: fixed;   /* 固定在屏幕上 */
+        top: 50%;          /* 垂直居中 */
+        left: 50%;         /* 水平居中 */
+        transform: translate(-50%, -50%); /* 精确居中 */
+        width: 300px;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.8);  /* 半透明黑色背景 */
+        color: white;
+        border-radius: 10px;
+        display: none;     /* 默认隐藏 */
+        z-index: 9999;     /* 确保文字框在场景上方 */
+      }
+      /* 关闭按钮 */
+      .close-btn {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 文字框 -->
+    <div class="info-box" id="myInfoBox">
+      <span class="close-btn" onclick="hideInfoBox()">×</span>
+      <h2>欢迎！</h2>
+      <p>这里是VR全景的示例场景，点击热点查看更多信息。</p>
+    </div>
+
+    <!-- A-Frame场景 -->
+    <a-scene>
+      <a-sky src="panorama.jpg"></a-sky>
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <!-- 可点击的热点 -->
+      <a-entity
+        position="0 0 -5"
+        geometry="primitive: sphere; radius: 0.1"
+        material="color: red"
+        cursor-listener
+        onclick="showInfoBox()"
+      ></a-entity>
+    </a-scene>
+
+    <script>
+      // 显示文字框
+      function showInfoBox() {
+        document.getElementById('myInfoBox').style.display = 'block';
+      }
+      // 隐藏文字框
+      function hideInfoBox() {
+        document.getElementById('myInfoBox').style.display = 'none';
+      }
+    </script>
+  </body>
+</html>
